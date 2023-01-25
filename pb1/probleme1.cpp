@@ -21,9 +21,10 @@ bool verifierEtatBouton()
 
 void busywaitdelay(int delay)
 {   
-    delay=delay/100;
+    delay=delay/10;
+
     for (int i = 0; i < delay; i++){
-        _delay_ms(0.1);
+        _delay_ms(0.01);
     }
 }
 
@@ -45,14 +46,14 @@ int main()
     {
         if (verifierEtatBouton())
         {
-
-            for (int i = 0; i < 1000; i++)
+            int a = 0;
+            for (int i = 0; i < 3000; i++)
             {
-
+                a = i/3;
                 PORTA = ROUGE;
-                busywaitdelay(i);
+                busywaitdelay(a);
                 PORTA = ETEINT;
-                busywaitdelay(1000 - i);
+                busywaitdelay(1000 - a);
 
                 
             }
